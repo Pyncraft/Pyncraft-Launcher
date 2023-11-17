@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Compile for Ubuntu/Debian
+name: Compile for Windows
 
 on:
   push:
@@ -16,7 +16,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
         cd client
         python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console
     - name: Tar files
-      run: cp launcher.ui client/launcher.dist && cd client && tar -cvf launcher.tar launcher.dist
+      run: copy launcher.ui client/launcher.dist && cd client && zip -r launcher.tar launcher.dist
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
