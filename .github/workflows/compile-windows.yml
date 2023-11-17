@@ -30,7 +30,7 @@ jobs:
     - name: Compile
       run: |
         cd client
-        python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console
+        echo Y | python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console | echo Y
     - name: Tar files
       run: copy launcher.ui client/launcher.dist && cd client && zip -r launcher.zip launcher.dist
     - name: Upload Artifact
