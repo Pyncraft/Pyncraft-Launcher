@@ -32,7 +32,7 @@ jobs:
         cd client
         python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console
     - name: Tar files
-      run: tar -cvf launcher.tar ./launcher.dist
+      run: tar -cvf launcher.tar launcher.dist
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
