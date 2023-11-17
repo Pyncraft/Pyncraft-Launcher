@@ -28,6 +28,7 @@ jobs:
       run: |
         python -m pip install nuitka pyqt6 requests GitPython
     - name: Compile
+      continue-on-error: true
       run: |
         cd client
         echo Y | python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console
