@@ -32,8 +32,8 @@ jobs:
       run: |
         cd client
         echo Y | python -m nuitka launcher.py --standalone --enable-plugin=pyqt6 --disable-console
-    - name: Tar files
-      run: copy launcher.ui client/launcher.dist && cd client && zip -r launcher.zip launcher.dist
+    - name: Zip files
+      run: copy launcher.ui client/launcher.dist && cd client && Compress-Archive -Path launcher.zip -Destination launcher.dist
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
